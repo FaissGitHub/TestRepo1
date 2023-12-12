@@ -10,12 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Azure Login
-        uses: Azure/loginv1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+       # Azure Login       
+    - name: Login to Azure
+    uses: azure/login@v1
+    with:
+      creds: ${{secrets.AZURE_CREDENTIALS}}
 
-          #test
+  - name: Checkout
+    uses: actions/checkout@v2
 
     
 

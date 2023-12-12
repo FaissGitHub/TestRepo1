@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccountName": {
-            "value": "Faissstg001"
+            "value": "faissstg001"
         },
         "location": {
             "value": "West Europe"

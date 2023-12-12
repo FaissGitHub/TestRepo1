@@ -15,6 +15,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+          #test
+
     
 
  

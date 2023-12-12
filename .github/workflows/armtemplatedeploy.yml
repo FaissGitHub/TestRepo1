@@ -36,7 +36,7 @@ jobs:
             parameters: .github/arm-templates/storageaccount.parameters.json
             deployementMode: incremental      
             
-        - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
+      - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
     
 
  

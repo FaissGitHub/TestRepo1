@@ -23,7 +23,7 @@ jobs:
           subscriptionId: 61d84522-83f6-41c6-bfa6-ea271611912d
           region: West Europe
           template: .github/arm-templates/resourcegroup.json
-          deployementsName: rg-githubactions
+        deployementName: rg-githubactions
 
       - name: Deploy Storage Account
         uses: Azure/arm-deploy@v1.0.9
@@ -34,9 +34,18 @@ jobs:
             subscriptionId: 61d84522-83f6-41c6-bfa6-ea271611912d
             template: .github/arm-templates/storageaccount.json
             parameters: .github/arm-templates/storageaccount.parameters.json
-            deployementMode: incremental      
-            
-      - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
+        deployementMode: incremental  
+                    
+        - name: Deploy Virtual machine
+        uses: Azure/arm-deploy@v1.0.9
+              with:
+            scope: resourcegroup
+            resourceGroupName: rg-githubactions
+            subscriptionId: 61d84522-83f6-41c6-bfa6-ea271611912d
+            template: .github/arm-templates/virtualmachine.json
+            parameters:
+              adminPassword="$ecureP@ssword!"
+        deployementMode: incremental 
     
 
  
